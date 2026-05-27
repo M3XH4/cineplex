@@ -1,216 +1,108 @@
-# CinePlex
+# 🎬 CinePlex
 
-CinePlex is a MERN-based Cinema Management and Movie Recommendation Web System that helps cinema staff manage movies, schedules, seats, bookings, payments, and reports while giving customers a personalized movie discovery and ticket-booking experience.
+<div align="center">
 
-Deployment docs are in [docs/DEPLOYMENT_GUIDE.md](docs/DEPLOYMENT_GUIDE.md) and the pre-deployment checklist is in [docs/PRE_DEPLOYMENT_CHECKLIST.md](docs/PRE_DEPLOYMENT_CHECKLIST.md).
+![CinePlex Banner](./frontend/public/banner.jpg)
 
-The system combines cinema operations management with a recommendation engine that suggests movies based on user preferences, genres, ratings, watch history, trending films, and similar movie data.
+### A Cinema Management & Movie Recommendation Platform
 
-## How to Run Locally
+[![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?style=for-the-badge&logo=node.js)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb)](https://mongodb.com/)
+[![Express](https://img.shields.io/badge/Express.js-API-000000?style=for-the-badge&logo=express)](https://expressjs.com/)
+[![Socket.IO](https://img.shields.io/badge/Socket.IO-Realtime-010101?style=for-the-badge&logo=socket.io)](https://socket.io/)
+[![TMDB](https://img.shields.io/badge/TMDB-API-01D277?style=for-the-badge)](https://www.themoviedb.org/)
 
-Requirements:
+</div>
 
-- Node.js and npm
-- MongoDB running locally, or a MongoDB Atlas connection string
+---
 
-Backend:
+# 📖 Overview
 
-```powershell
-cd backend
-npm.cmd install
-npm.cmd run seed
-npm.cmd run dev
-```
+**CinePlex** is a modern cinema management and movie recommendation web application built with the **MERN Stack**.
 
-Frontend:
+The platform combines:
 
-```powershell
-cd frontend
-npm.cmd install
-npm.cmd run dev
-```
+- 🎥 Cinema Management
+- 🍿 Real-Time Ticket Booking
+- 🤖 Personalized Movie Recommendations
+- 📊 Admin Analytics Dashboard
+- 💺 Live Seat Selection
+- 🔐 Secure Authentication
+- 📱 Fully Responsive UI
 
-Default local URLs:
+CinePlex delivers a cinematic user experience while helping cinemas manage movies, schedules, bookings, and customers efficiently.
 
-- Frontend: `http://localhost:5173`
-- Backend API: `http://localhost:5000/api`
-- Backend health check: `http://localhost:5000/health`
+---
 
-Seeded accounts:
+# ✨ Features
 
-- Admin: `admin@cineplex.com` / `admin123`
-- Staff: `staff@cineplex.com` / `staff123`
-- Customer: `user@gmail.com` / `user123`
+## 👤 User Features
 
-On Windows PowerShell, use `npm.cmd` if `npm` is blocked by the script execution policy.
+- User Authentication (JWT)
+- Login & Registration
+- Personalized Movie Recommendations
+- Browse Now Showing & Upcoming Movies
+- Movie Search & Filters
+- Movie Details & Trailers
+- Real-Time Seat Selection
+- Live Seat Locking
+- Ticket Booking
+- QR Code Ticket Generation
+- Booking History
+- Favorites & Watchlist
+- Reviews & Ratings
+- Responsive Netflix-Inspired UI
 
-Recommended Tech Stack
+---
 
-Frontend
+## 🛠️ Admin Features
 
+- Admin Dashboard
+- Movie Management
+- Cinema Room Management
+- Showtime Scheduling
+- Booking Monitoring
+- Revenue Analytics
+- Occupancy Reports
+- User Management
+- Sales Statistics
+- Dynamic Pricing Support
+
+---
+
+# 🧠 Recommendation System
+
+CinePlex uses a hybrid recommendation system powered by:
+
+- TMDB API
+- User watch history
+- Favorite genres
+- Search behavior
+- Trending movies
+- Similar movie recommendations
+
+### Recommendation Sections
+
+- 🔥 Trending Now
+- 🎯 Top Picks For You
+- 🍿 Because You Watched
+- ⭐ Top Rated
+- 🎬 Upcoming Movies
+
+---
+
+# 🖥️ Tech Stack
+
+## Frontend
+
+```bash
 React.js
 Vite
-Tailwind CSS or Material UI
-Redux Toolkit / Zustand
+Tailwind CSS
+Framer Motion
 React Router
 Axios
-Framer Motion for animations
-
-Backend
-
-Node.js
-Express.js
-MongoDB
-Mongoose
-JWT authentication
-Bcrypt for password hashing
-Multer or Cloudinary for posters/images
-Socket.IO for real-time seat updates
-
-Database
-
-MongoDB Atlas
-
-Deployment
-
-Frontend: Vercel or Netlify
-Backend: Render, Railway, or AWS
-Database: MongoDB Atlas
-Media storage: Cloudinary
-Movie Recommendation APIs
-
-Use TMDB API as the main API because it provides movie details, posters, cast, genres, trending movies, search, and movie recommendations. TMDB has an official movie recommendation endpoint.
-
-Other possible APIs:
-
-OMDb API for IMDb-like movie metadata, ratings, plot, year, and poster data.
-Watchmode API if you want streaming availability from Netflix, Disney+, Prime Video, and other services.
-TasteDive API for similar movie recommendations based on user input.
-
-Best setup: use TMDB API + your own recommendation logic.
-
-Best Features
-Customer Side
-User registration and login
-Browse now showing and upcoming movies
-View movie details, trailer, cast, genre, duration, rating
-Recommended movies based on:
-liked movies
-booking history
-favorite genres
-trending movies
-similar movies from TMDB
-Seat selection with real-time availability
-Online ticket booking
-Booking history
-QR code ticket generation
-Email confirmation
-Movie reviews and ratings
-Search and filter by genre, date, rating, language, or cinema branch
-Admin Side
-Admin dashboard
-Add, update, and remove movies
-Manage screening schedules
-Manage cinema rooms and seat layouts
-Monitor bookings and revenue
-Manage users
-View analytics:
-most booked movies
-peak booking hours
-total revenue
-occupancy rate
-Cancel or reschedule screenings
-Generate reports
-Recommendation Logic
-
-A practical recommendation flow:
-
-Get user preferences from registration or profile.
-Track user activity:
-viewed movies
-booked movies
-liked movies
-searched genres
-Fetch similar movies from TMDB.
-Rank recommendations using:
-genre match
-popularity
-rating
-release date
-user history
-Store recommended movie IDs in MongoDB for faster loading.
-
-Example recommendation score:
-
-score =
-  genreMatch * 40 +
-  userLikedActor * 15 +
-  popularity * 20 +
-  rating * 15 +
-  recentRelease * 10
-Suggested System Modules
-Authentication Module
-User Management Module
-Movie Management Module
-Cinema Room Management Module
-Schedule Management Module
-Booking and Seat Reservation Module
-Payment Module
-Recommendation Module
-Review and Rating Module
-Admin Analytics Module
-Notification Module
-Database Collections
-
-Recommended MongoDB collections:
-
-users
-movies
-cinemas
-screeningSchedules
-bookings
-seats
-payments
-reviews
-recommendations
-notifications
-How to Deliver the System Properly
-
-Deliver it in phases:
-
-Phase 1: Core Setup
-
-Set up MERN project structure.
-Build authentication.
-Create admin and customer roles.
-
-Phase 2: Movie and Schedule Management
-
-Admin can manage movies, cinemas, rooms, and schedules.
-Customer can browse movie listings.
-
-Phase 3: Booking System
-
-Seat selection.
-Real-time seat locking using Socket.IO.
-Booking confirmation.
-QR ticket generation.
-
-Phase 4: Recommendation System
-
-Integrate TMDB API.
-Build user preference tracking.
-Add personalized recommendations.
-
-Phase 5: Admin Dashboard
-
-Revenue reports.
-Booking analytics.
-Movie performance charts.
-
-Phase 6: Testing and Deployment
-
-Test API endpoints with Postman.
-Add validation and error handling.
-Deploy frontend, backend, and database.
-Prepare documentation and user manual.
+Zustand / Redux Toolkit
+TanStack Query
+Socket.IO Client

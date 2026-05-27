@@ -107,7 +107,7 @@ CinePlex uses a hybrid recommendation system powered by:
 - TanStack Query
 - Recharts
 - Socket.IO Client
-
+````
 ## Backend
 
 ````bash
@@ -120,7 +120,7 @@ CinePlex uses a hybrid recommendation system powered by:
 - Socket.IO
 - Multer
 - Cloudinary
-
+````
 ## External Services
 
 ````bash
@@ -130,5 +130,4 @@ CinePlex uses a hybrid recommendation system powered by:
 - Stripe-ready payment integration
 - Vercel
 - Render or Railway
-
----
+````

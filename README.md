@@ -96,13 +96,39 @@ CinePlex uses a hybrid recommendation system powered by:
 
 ## Frontend
 
-```bash
-React.js
-Vite
-Tailwind CSS
-Framer Motion
-React Router
-Axios
-Zustand / Redux Toolkit
-TanStack Query
-Socket.IO Client
+````bash
+- React.js
+- Vite
+- Tailwind CSS
+- React Router
+- Axios
+- Framer Motion
+- Zustand or Redux Toolkit
+- TanStack Query
+- Recharts
+- Socket.IO Client
+
+## Backend
+
+````bash
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT
+- bcrypt
+- Socket.IO
+- Multer
+- Cloudinary
+
+## External Services
+
+````bash
+- TMDB API
+- MongoDB Atlas
+- Cloudinary
+- Stripe-ready payment integration
+- Vercel
+- Render or Railway
+
+---

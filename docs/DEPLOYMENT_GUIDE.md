@@ -44,6 +44,8 @@ git push origin main
 5. Add the backend environment variables from `backend/.env.example`.
 6. Set `NODE_ENV=production`.
 7. Set `CLIENT_URL` to your Vercel frontend URL.
+   - You can include multiple allowed frontend origins separated by commas.
+   - Add both your production Vercel URL and localhost during local testing.
 8. Deploy the service.
 
 ## 5. Deploy The Backend On Railway
@@ -75,6 +77,7 @@ git push origin main
 1. Copy the final backend URL from Render or Railway.
 2. Update the frontend `VITE_API_URL` value in Vercel.
 3. Update the backend `CLIENT_URL` value so CORS only allows the deployed frontend URL.
+   - If you use Vercel preview deployments, add the preview domain or keep the `.vercel.app` origin support enabled in the backend.
 4. Re-deploy both services after environment changes.
 5. Confirm the browser can load login, register, search, booking, and admin pages without CORS errors.
 

@@ -1,21 +1,20 @@
 import { Server } from 'socket.io';
 import Showtime from '../models/Showtime.js';
 import logger from '../utils/logger.js';
+import { isAllowedOrigin } from '../utils/origin.js';
 
 let ioInstance = null;
-
-const getAllowedOrigins = () => {
-  const rawOrigins = process.env.CLIENT_URL || 'http://localhost:5173';
-  return rawOrigins
-    .split(',')
-    .map((origin) => origin.trim())
-    .filter(Boolean);
-};
 
 export const initSocket = (server) => {
   const io = new Server(server, {
     cors: {
-      origin: getAllowedOrigins(),
+      origin: (origin, callback) => {
+        if (isAllowedOrigin(origin)) {
+          return callback(null, true);
+        }
+
+        return callback(new Error(`Socket CORS blocked for origin: ${origin}`));
+      },
       methods: ['GET', 'POST'],
       credentials: true,
     },

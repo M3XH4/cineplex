@@ -15,23 +15,25 @@ import chatbotRoutes from './routes/chatbotRoutes.js';
 import cinemaRoutes from './routes/cinemaRoutes.js';
 
 import errorHandler from './middleware/errorHandler.js';
+import { isAllowedOrigin } from './utils/origin.js';
 
 const app = express();
 
 app.set('trust proxy', 1);
 app.disable('x-powered-by');
 
-const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173')
-  .split(',')
-  .map((origin) => origin.trim())
-  .filter(Boolean);
-
 // Security Headers
 app.use(helmet());
 
 // Cross-Origin Resource Sharing
 app.use(cors({
-  origin: allowedOrigins,
+  origin: (origin, callback) => {
+    if (isAllowedOrigin(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error(`CORS blocked for origin: ${origin}`));
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
